@@ -8,7 +8,7 @@ const projects = ref([])
 
 onMounted(async () => {
   try {
-    const res = await axios.get('http://localhost:3000/api/projects')
+    const res = await axios.get( import.meta.env.PROD ? '/api/projects' : 'http://localhost:3000/api/projects' )
     projects.value = res.data
   } catch (error) {
     console.error('Gagal mengambil data proyek:', error)

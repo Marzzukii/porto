@@ -7,7 +7,7 @@ const skills = ref([])
 
 onMounted(async () => {
   try {
-    const res = await axios.get('http://localhost:3000/api/skills')
+    const res = await axios.get( import.meta.env.PROD ? '/api/skills' : 'http://localhost:3000/api/skills')
     skills.value = res.data
   } catch (err) {
     console.error('Gagal mengambil data skills:', err)

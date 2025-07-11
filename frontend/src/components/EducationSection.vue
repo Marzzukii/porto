@@ -8,7 +8,7 @@ const educationHistory = ref([])
 
 onMounted(async () => {
   try {
-    const res = await axios.get('http://localhost:3000/api/education')
+    const res = await axios.get( import.meta.env.PROD ? '/api/education' : 'http://localhost:3000/api/education')
     educationHistory.value = res.data
   } catch (err) {
     console.error('Gagal mengambil data pendidikan:', err)
